@@ -1,0 +1,11 @@
+
+*.vsidx
+ASEAN_Phonebook/.vs/ASEAN_Phonebook/v17/.suo
+*.config
+*.csproj
+*.sln
+ASEAN_Phonebook/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
+ASEAN_Phonebook/obj/Debug/ASEAN_Phonebook.csproj.AssemblyReference.cache
+ASEAN_Phonebook/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+ASEAN_Phonebook/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+ASEAN_Phonebook/Properties/AssemblyInfo.cs
