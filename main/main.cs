@@ -10,6 +10,11 @@ namespace main
     {
         static void Main(string[] args)
         {
+            Menu();
+        }
+
+        static void Menu()
+        { 
             while (true)
             {
                 Console.WriteLine("Main Menu:");
