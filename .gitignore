@@ -9,3 +9,8 @@ ASEAN_Phonebook/obj/Debug/ASEAN_Phonebook.csproj.AssemblyReference.cache
 ASEAN_Phonebook/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 ASEAN_Phonebook/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 ASEAN_Phonebook/Properties/AssemblyInfo.cs
+*.user
+*.exe
+*.pdb
+*.cache
+*.txt
