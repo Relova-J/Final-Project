@@ -28,7 +28,7 @@ namespace main
                     switch (choice)
                     {
                         case 1:
-                            //to_ASEAN_phonebook();
+                            Functions.to_ASEAN_phonebook();
                             break;
                         case 2:
                             //edit_ASEAN_phonebook();
