@@ -10,12 +10,39 @@ class Functions
     {
         while (true)
         {
-            Console.Write("Enter Student Number: ");
+            Console.Write("\nEnter Student Number: ");
             string studentNumber = Console.ReadLine();
+
+            if (OtherInformation.get_Phonebook().Find(s => s.StudentNumber == studentNumber)!= null)
+            {
+                Console.WriteLine("Student Number Already Exists.");
+                continue;
+            }
+
+            if (string.IsNullOrWhiteSpace(studentNumber))
+            {
+                Console.WriteLine("First name cannot be empty. Please enter a valid student number.");
+                return;
+            }
+
             Console.Write("Enter Surname: ");
             string surname = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(studentNumber))
+            {
+                Console.WriteLine("First name cannot be empty. Please enter a valid surname.");
+                return;
+            }
+
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(studentNumber))
+            {
+                Console.WriteLine("First name cannot be empty. Please enter a valid first name.");
+                return;
+            }
+
             Console.Write("Enter Occupation: ");
             string occupation = Console.ReadLine();
             Console.Write("Enter Gender (M/F): ");
@@ -30,7 +57,7 @@ class Functions
 
             OtherInformation.add_to_Phonebook(new PersonalInformation(studentNumber, surname, firstName, occupation, gender, countryCode, areaCode, number));
 
-            Console.Write("Do you want to enter another entry(Y/N)?");
+            Console.Write("\nDo you want to enter another entry(Y/N)?");
             char choice = Console.ReadKey().KeyChar;
             Console.WriteLine();
 
@@ -70,7 +97,7 @@ class Functions
             Console.WriteLine("[6] Area Code");
             Console.WriteLine("[7] Phone Number");
             Console.WriteLine("[8] None/Go Back");
-            Console.Write("Enter choice: ");
+            Console.Write("\nEnter choice: ");
             if (int.TryParse(Console.ReadLine(), out int choice))
             {
                 switch (choice)
