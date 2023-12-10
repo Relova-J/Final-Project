@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 class Functions
 {
     public static void to_ASEAN_phonebook()
@@ -23,6 +27,8 @@ class Functions
             Console.Write("Enter Number: ");
             int number = Convert.ToInt32(Console.ReadLine());
 
+            OtherInformation.add_to_Phonebook(new PersonalInformation(studentNumber, surname, firstName, occupation, gender, countryCode, areaCode, number));
+            
             Console.Write("Do you want to enter another entry(Y/N)?");
             char choice = Console.ReadKey().KeyChar;
             Console.WriteLine();
