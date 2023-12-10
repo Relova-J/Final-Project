@@ -72,3 +72,27 @@ class PersonalInformation
         set { number = value; }
     }
 }
+
+
+class OtherInformation
+{
+    public static Dictionary<int, string> ASEANcountries = new Dictionary<int, string>()
+    {
+        { 60, "Federation of Malaysia" },
+        { 62, "Republic of Indonesia" },
+        { 63, "Republic of the Philippines" },
+        { 65, "Republic of Singapore" },
+        { 66, "Kingdom of Thailand" }
+    };
+    private static List<PersonalInformation> ASEANphonebook = new List<PersonalInformation>();
+
+    public static void add_to_Phonebook(PersonalInformation person)
+    {
+        ASEANphonebook.Add(person);
+    }
+
+    public static List<PersonalInformation> get_Phonebook()
+    {
+        return ASEANphonebook;
+    }
+}
