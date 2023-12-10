@@ -31,10 +31,10 @@ namespace ASEANphonebook
                             Functions.to_ASEAN_phonebook();
                             break;
                         case 2:
-                            //Functions.edit_ASEAN_phonebook();
+                            Functions.edit_ASEAN_phonebook();
                             break;
                         case 3:
-                            //Functions.get_ASEAN_phonebook();
+                            Functions.get_ASEAN_phonebook();
                             break;
                         case 4:
                             return;

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ class Functions
             int number = Convert.ToInt32(Console.ReadLine());
 
             OtherInformation.add_to_Phonebook(new PersonalInformation(studentNumber, surname, firstName, occupation, gender, countryCode, areaCode, number));
-            
+
             Console.Write("Do you want to enter another entry(Y/N)?");
             char choice = Console.ReadKey().KeyChar;
             Console.WriteLine();
@@ -37,9 +38,7 @@ class Functions
                 break;
         }
     }
-}
-
-public static void edit_ASEAN_phonebook()
+    public static void edit_ASEAN_phonebook()
     {
         Console.Write("Enter Student Number: ");
         string studentNumber = Console.ReadLine();
@@ -118,3 +117,80 @@ public static void edit_ASEAN_phonebook()
             }
         }
     }
+    public static void get_ASEAN_phonebook()
+    {
+        List<PersonalInformation> filter_person = new List<PersonalInformation>();
+        List<int> choices = new List<int>();
+        List<string> country_names = new List<string>();
+
+        while (true)
+        {
+            Console.WriteLine("From which country:");
+            Console.WriteLine("[1] Malaysia");
+            Console.WriteLine("[2] Indonesia");
+            Console.WriteLine("[3] Philippines");
+            Console.WriteLine("[4] Singapore");
+            Console.WriteLine("[5] Thailand");
+            Console.WriteLine("[6] ALL");
+            Console.WriteLine("[0] None More Country");
+            Console.Write("Enter choice: ");
+
+            if (int.TryParse(Console.ReadLine(), out int choice))
+            {
+                if (choice == 0)
+                {
+                    break;
+                }
+                else if (choice == 6)
+                {
+                    choices = new List<int> { 1, 2, 3, 4, 5 };
+                    break;
+                }
+                else if (choice > 0 && choice < 6)
+                {
+                    choices.Add(choice);
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Number.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid Input.");
+            }
+        }
+
+        foreach (var choice in choices)
+        {
+            var keyValuePair = OtherInformation.ASEANcountries.ElementAt(choice - 1);
+
+            int countryCode = keyValuePair.Key;
+            string countryName = keyValuePair.Value;
+            country_names.Add(countryName);
+
+            filter_person.AddRange(OtherInformation.get_Phonebook().Where(person => person.CountryCode == countryCode));
+        }
+
+        if (filter_person.Count > 0)
+        {
+            Console.WriteLine($"List of People in {string.Join(", ", country_names)}");
+
+            foreach (PersonalInformation person in filter_person)
+            {
+                Console.WriteLine($"Student Number: {person.StudentNumber}");
+                Console.WriteLine($"Name: {person.Surname}, {person.FirstName}");
+                Console.WriteLine($"Occupation: {person.Occupation}");
+                Console.WriteLine($"Gender: {person.Gender}");
+                Console.WriteLine($"Country Code: {person.CountryCode}");
+                Console.WriteLine($"Area Code: {person.AreaCode}");
+                Console.WriteLine($"Phone Number: {person.Number}");
+                Console.WriteLine();
+            }
+        }
+        else
+        {
+            Console.WriteLine($"There is No Person in {string.Join(", ", country_names)}:");
+        }
+    }
+}
