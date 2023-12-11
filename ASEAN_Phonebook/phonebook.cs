@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 class PersonalInformation
 {
-    private int studentNumber;
+    private string studentNumber;
     private string surname;
     private string firstName;
     private string occupation;
@@ -15,7 +15,7 @@ class PersonalInformation
     private int areaCode;
     private int number;
 
-    public PersonalInformation(int studentNumber, string surname, string firstName, string occupation, char gender, int countryCode, int areaCode, int number)
+    public PersonalInformation(string studentNumber, string surname, string firstName, string occupation, char gender, int countryCode, int areaCode, int number)
     {
         this.studentNumber = studentNumber;
         this.surname = surname;
@@ -27,7 +27,7 @@ class PersonalInformation
         this.number = number;
     }
 
-    public int StudentNumber
+    public string StudentNumber
     {
         get { return studentNumber; }
         set { studentNumber = value; }

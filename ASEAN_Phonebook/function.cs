@@ -11,17 +11,20 @@ class Functions
         while (true)
         {
             Console.Write("\nEnter Student Number: ");
-            if (!int.TryParse(Console.ReadLine(), out int studentNumber))
+            string studentNumber = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(studentNumber))
             {
-                Console.WriteLine("Student number cannot be empty and must be numbers. Please enter a valid student number.");
+                Console.WriteLine("Student number cannot be empty. Please enter a valid student number.");
                 continue;
             }
 
-            if (OtherInformation.get_Phonebook().Find(i => i.StudentNumber == studentNumber)!= null)
+            if (OtherInformation.get_Phonebook().Any(s => s.StudentNumber == studentNumber))
             {
                 Console.WriteLine("Student Number Already Exists.");
                 continue;
             }
+
 
             Console.Write("Enter Surname: ");
             string surname = Console.ReadLine();
@@ -51,7 +54,7 @@ class Functions
             }
 
             Console.Write("Enter Gender (M/F): ");
-            if (!char.TryParse(Console.ReadLine(), out char gender))
+            if (!char.TryParse(Console.ReadLine(), out char gender) && !(char.ToUpper(gender) == 'M' || char.ToUpper(gender) == 'F'))
             {
                 Console.WriteLine("Gender cannot be empty and must be single character. Please enter a valid gender (M/F).");
                 continue;
@@ -94,12 +97,12 @@ class Functions
     public static void edit_ASEAN_phonebook()
     {
         Console.Write("\nEnter Student Number: ");
-        if (!int.TryParse(Console.ReadLine(), out int studentNumber))
+        string studentNumber = Console.ReadLine();
+        if (string.IsNullOrEmpty(studentNumber))
         {
-            Console.WriteLine("Student number cannot be empty and must be numbers. Please enter a valid student number.");
+            Console.WriteLine("Input cannot be empty. Please enter a valid student number.");
         }
-
-        PersonalInformation person = OtherInformation.get_Phonebook().Find(i => i.StudentNumber == studentNumber);
+        PersonalInformation person = OtherInformation.get_Phonebook().Find(s => s.StudentNumber == studentNumber);
 
         if (person == null)
         {
@@ -110,13 +113,20 @@ class Functions
         while (true)
         {
             Console.WriteLine("\nPerson Found:");
-            Console.WriteLine($"Student Number: {person.StudentNumber}");
-            Console.WriteLine($"Name: {person.Surname}, {person.FirstName}");
-            Console.WriteLine($"Occupation: {person.Occupation}");
-            Console.WriteLine($"Gender: {person.Gender}");
-            Console.WriteLine($"Country Code: {person.CountryCode}");
-            Console.WriteLine($"Area Code: {person.AreaCode}");
-            Console.WriteLine($"Phone Number: {person.Number}");
+            string gender;
+            if (person.Gender == 'M')
+            {
+                gender = "his";
+            }
+            else if (person.Gender == 'F')
+            {
+                gender = "her";
+            }
+            else
+            {
+                gender = "their";
+            }
+            Console.WriteLine($"{person.Surname}, {person.FirstName} with student number {person.StudentNumber}, is a {person.Occupation}. {gender} phone number is {person.CountryCode}-{person.AreaCode}-{person.Number}.");
             Console.WriteLine("\nEdit Menu:");
             Console.WriteLine("[1] Student Number");
             Console.WriteLine("[2] Surname");
@@ -134,14 +144,14 @@ class Functions
                 {
                     case 1:
                         Console.Write("Enter new student number: ");
-                        if (int.TryParse(Console.ReadLine(), out int newStudentNumber))
+                        string newStudentNumber = Console.ReadLine();
+
+                        if (string.IsNullOrEmpty(newStudentNumber))
                         {
-                            person.StudentNumber = newStudentNumber;
+                            Console.WriteLine("Student number cannot be empty. Please enter a valid student number.");
+                            continue;
                         }
-                        else
-                        {
-                            Console.WriteLine("Student number cannot be empty and must be numbers. Please enter a valid student number.");
-                        }
+                        person.StudentNumber = newStudentNumber;
                         Console.WriteLine();
                         break;
 
@@ -192,9 +202,9 @@ class Functions
 
                     case 5:
                         Console.Write("Enter new gender (M/F): ");
-                        if (char.TryParse(Console.ReadLine(), out char newGender))
+                        if (char.TryParse(Console.ReadLine(), out char newGender) && (char.ToUpper(newGender) == 'M' || char.ToUpper(newGender) == 'F'))
                         {
-                            person.StudentNumber = newGender;
+                            person.Gender = newGender;
                         }
                         else
                         {
@@ -318,13 +328,20 @@ class Functions
 
             foreach (PersonalInformation person in filter_person)
             {
-                Console.WriteLine($"Student Number: {person.StudentNumber}");
-                Console.WriteLine($"Name: {person.Surname}, {person.FirstName}");
-                Console.WriteLine($"Occupation: {person.Occupation}");
-                Console.WriteLine($"Gender: {person.Gender}");
-                Console.WriteLine($"Country Code: {person.CountryCode}");
-                Console.WriteLine($"Area Code: {person.AreaCode}");
-                Console.WriteLine($"Phone Number: {person.Number}");
+                string gender;
+                if (person.Gender == 'M')
+                {
+                    gender = "his";
+                }
+                else if (person.Gender == 'F')
+                {
+                    gender = "her";
+                }
+                else
+                {
+                    gender = "their";
+                }
+                Console.WriteLine($"{person.Surname}, {person.FirstName} with student number {person.StudentNumber}, is a {person.Occupation}. {gender} phone number is {person.CountryCode}-{person.AreaCode}-{person.Number}.");
                 Console.WriteLine();
             }
         }
