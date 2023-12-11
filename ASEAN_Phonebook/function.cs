@@ -54,7 +54,7 @@ class Functions
             }
 
             Console.Write("Enter Gender (M/F): ");
-            if (!char.TryParse(Console.ReadLine(), out char gender) && !(char.ToUpper(gender) == 'M' || char.ToUpper(gender) == 'F'))
+            if (!char.TryParse(Console.ReadLine(), out char gender))
             {
                 Console.WriteLine("Gender cannot be empty and must be single character. Please enter a valid gender (M/F).");
                 continue;

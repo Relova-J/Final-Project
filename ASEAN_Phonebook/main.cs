@@ -17,7 +17,7 @@ namespace ASEANphonebook
         { 
             while (true)
             {
-                Console.WriteLine("Main Menu:");
+                Console.WriteLine("\nMain Menu:");
                 Console.WriteLine("[1] Store to ASEAN phonebook");
                 Console.WriteLine("[2] Edit entry in ASEAN phonebook");
                 Console.WriteLine("[3] Search ASEAN phonebook by country");
