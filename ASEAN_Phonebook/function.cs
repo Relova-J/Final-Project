@@ -80,7 +80,7 @@ class Functions
 
             OtherInformation.add_to_Phonebook(new PersonalInformation(studentNumber, surname, firstName, occupation, gender=char.ToUpper(gender), countryCode, areaCode, number));
 
-            Console.Write("\nDo you want to enter another entry(Y/N)?");
+            Console.Write("\nDo you want to enter another entry(Y/N)? ");
             if (!char.TryParse(Console.ReadLine(), out char choice))
             {
                 Console.WriteLine("Choice cannot be empty or more than one characters. Please enter a valid choice (Y/N).");
@@ -265,7 +265,7 @@ class Functions
 
         while (true)
         {
-            Console.WriteLine("From which country:");
+            Console.WriteLine("\nFrom which country:");
             Console.WriteLine("[1] Malaysia");
             Console.WriteLine("[2] Indonesia");
             Console.WriteLine("[3] Philippines");
@@ -273,7 +273,7 @@ class Functions
             Console.WriteLine("[5] Thailand");
             Console.WriteLine("[6] ALL");
             Console.WriteLine("[0] None More Country");
-            Console.Write("Enter choice: ");
+            Console.Write("\nEnter choice: ");
 
             if (int.TryParse(Console.ReadLine(), out int choice))
             {
@@ -314,7 +314,7 @@ class Functions
 
         if (filter_person.Count > 0)
         {
-            Console.WriteLine($"List of People in {string.Join(", ", country_names)}");
+            Console.WriteLine($"\nList of People in {string.Join(", ", country_names)}");
 
             foreach (PersonalInformation person in filter_person)
             {
@@ -330,7 +330,7 @@ class Functions
         }
         else
         {
-            Console.WriteLine($"There is No Person in {string.Join(", ", country_names)}:");
+            Console.WriteLine($"\nThere is No Person in {string.Join(", ", country_names)}:");
         }
     }
 }

@@ -22,7 +22,7 @@ namespace ASEANphonebook
                 Console.WriteLine("[2] Edit entry in ASEAN phonebook");
                 Console.WriteLine("[3] Search ASEAN phonebook by country");
                 Console.WriteLine("[4] Exit");
-                Console.Write("Enter number of choice: ");
+                Console.Write("\nEnter number of choice: ");
                 if (int.TryParse(Console.ReadLine(), out int choice))
                 {
                     switch (choice)
@@ -39,13 +39,13 @@ namespace ASEANphonebook
                         case 4:
                             return;
                         default:
-                            Console.WriteLine("Invalid choice. Please try again.");
+                            Console.WriteLine("Invalid choice. Please try again.\n");
                             break;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a number.");
+                    Console.WriteLine("Invalid input. Please enter a number.\n");
                 }
             }
         }
