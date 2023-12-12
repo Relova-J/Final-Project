@@ -10,20 +10,9 @@ class Functions
     {
         while (true)
         {
-            Console.Write("\nEnter Student Number: ");
-            string studentNumber = Console.ReadLine();
+            string studentNumber = checking.get_studentNumber();
 
-            if (string.IsNullOrEmpty(studentNumber))
-            {
-                Console.WriteLine("Student number cannot be empty. Please enter a valid student number.");
-                continue;
-            }
 
-            if (OtherInformation.get_Phonebook().Any(s => s.StudentNumber == studentNumber))
-            {
-                Console.WriteLine("Student Number Already Exists.");
-                continue;
-            }
 
 
             Console.Write("Enter Surname: ");
