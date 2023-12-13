@@ -236,4 +236,20 @@ class checking
             }
         }
     }
+
+    public static string get_identifier(char gender)
+    {
+        if (gender == 'M')
+        {
+            return "his";
+        }
+        else if(gender == 'F')
+        {
+            return "her";
+        }
+        else
+        {
+            return "error";
+        }
+    }
  }

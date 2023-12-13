@@ -51,19 +51,7 @@ class Functions
         while (true)
         {
             Console.WriteLine("\nPerson Found:");
-            string gender;
-            if (person.Gender == 'M')
-            {
-                gender = "his";
-            }
-            else if (person.Gender == 'F')
-            {
-                gender = "her";
-            }
-            else
-            {
-                gender = "their";
-            }
+            string gender = checking.get_identifier(person.Gender);
             Console.WriteLine($"{person.Surname}, {person.FirstName} with student number {person.StudentNumber}, is a {person.Occupation}. {gender} phone number is {person.CountryCode}-{person.AreaCode}-{person.Number}.");
             Console.WriteLine("\nEdit Menu:");
             Console.WriteLine("[1] Student Number");
@@ -196,19 +184,7 @@ class Functions
 
             foreach (PersonalInformation person in filter_person)
             {
-                string gender;
-                if (person.Gender == 'M')
-                {
-                    gender = "his";
-                }
-                else if (person.Gender == 'F')
-                {
-                    gender = "her";
-                }
-                else
-                {
-                    gender = "their";
-                }
+                string gender = checking.get_identifier(person.Gender);
                 Console.WriteLine($"{person.Surname}, {person.FirstName} with student number {person.StudentNumber}, is a {person.Occupation}. {gender} phone number is {person.CountryCode}-{person.AreaCode}-{person.Number}.");
                 Console.WriteLine();
             }
