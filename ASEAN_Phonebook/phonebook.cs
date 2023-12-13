@@ -12,10 +12,10 @@ class PersonalInformation
     private string occupation;
     private char gender;
     private int countryCode;
-    private int areaCode;
-    private int number;
+    private string areaCode;
+    private string number;
 
-    public PersonalInformation(string studentNumber, string surname, string firstName, string occupation, char gender, int countryCode, int areaCode, int number)
+    public PersonalInformation(string studentNumber, string surname, string firstName, string occupation, char gender, int countryCode, string areaCode, string number)
     {
         this.studentNumber = studentNumber;
         this.surname = surname;
@@ -63,13 +63,13 @@ class PersonalInformation
         set { countryCode = value; }
     }
 
-    public int AreaCode
+    public string AreaCode
     {
         get { return areaCode; }
         set { areaCode = value; }
     }
 
-    public int Number
+    public string Number
     {
         get { return number; }
         set { number = value; }
