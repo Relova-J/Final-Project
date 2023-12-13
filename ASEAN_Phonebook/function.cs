@@ -11,64 +11,13 @@ class Functions
         while (true)
         {
             string studentNumber = checking.get_studentNumber(0);
-
-
-
-
-            Console.Write("Enter Surname: ");
-            string surname = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(surname))
-            {
-                Console.WriteLine("Last name cannot be empty. Please enter a valid surname.");
-                continue;
-            }
-
-            Console.Write("Enter First Name: ");
-            string firstName = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(firstName))
-            {
-                Console.WriteLine("First name cannot be empty. Please enter a valid first name.");
-                continue;
-            }
-
-            Console.Write("Enter Occupation: ");
-            string occupation = Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(occupation))
-            {
-                Console.WriteLine("Occupation cannot be empty. Please enter a valid occupation.");
-                continue;
-            }
-
-            Console.Write("Enter Gender (M/F): ");
-            if (!char.TryParse(Console.ReadLine(), out char gender))
-            {
-                Console.WriteLine("Gender cannot be empty and must be single character. Please enter a valid gender (M/F).");
-                continue;
-            }
-
-            Console.Write("Enter Country Code: ");
-            if (!int.TryParse(Console.ReadLine(), out int countryCode))
-            {
-                Console.WriteLine("Country code cannot be empty and must be numbers. Please enter a valid country code.");
-                continue;
-            }
-
-            Console.Write("Enter Area Code: ");
-            if (!int.TryParse(Console.ReadLine(), out int areaCode))
-            {
-                Console.WriteLine("Area code cannot be empty and must be numbers. Please enter a valid area code.");
-                continue;
-            }
-
-            Console.Write("Enter Number: ");
-            if (!int.TryParse(Console.ReadLine(), out int number))
-            {
-                Console.WriteLine("Number cannot be empty and must be numbers. Please enter a valid number.");
-                continue;
-            }
+            string surname = checking.get_surname(0);
+            string firstName = checking.get_firstName(0);
+            string occupation = checking.get_occupation(0);
+            char gender = checking.get_gender(0);
+            int countryCode = checking.get_countryCode(0);
+            string areaCode = checking.get_areaCode(0);
+            string number = checking.get_number(0);
 
             OtherInformation.add_to_Phonebook(new PersonalInformation(studentNumber, surname, firstName, occupation, gender=char.ToUpper(gender), countryCode, areaCode, number));
 
@@ -137,99 +86,37 @@ class Functions
                         break;
 
                     case 2:
-                        Console.Write("Enter new surname: ");
-                        string newSurname = Console.ReadLine();
-                        if (string.IsNullOrWhiteSpace(newSurname))
-                        {
-                            Console.WriteLine("Last name cannot be empty. Please enter a valid surname.");
-                            continue;
-                        }
-                        else 
-                        {
-                            person.Surname = newSurname;
-                        }
+                        person.Surname = checking.get_surname(1);
                         Console.WriteLine();
                         break;
 
                     case 3:
-                        Console.Write("Enter new first name: ");
-                        string newFirstName = Console.ReadLine();
-                        if (string.IsNullOrWhiteSpace(newFirstName))
-                        {
-                            Console.WriteLine("First name cannot be empty. Please enter a valid first name.");
-                            continue;
-                        }
-                        else
-                        {
-                            person.FirstName = newFirstName;
-                        }
+                        person.FirstName = checking.get_firstName(1);
                         Console.WriteLine();
                         break;
 
                     case 4:
-                        Console.Write("Enter new occupation: ");
-                        string newOccupation = Console.ReadLine();
-                        if (string.IsNullOrWhiteSpace(newOccupation))
-                        {
-                            Console.WriteLine("Occupation cannot be empty. Please enter a valid occupation.");
-                            continue;
-                        }
-                        else
-                        {
-                            person.Occupation = newOccupation;
-                        }
+                        person.Occupation = checking.get_occupation(1);
                         Console.WriteLine();
                         break;
 
                     case 5:
-                        Console.Write("Enter new gender (M/F): ");
-                        if (char.TryParse(Console.ReadLine(), out char newGender) && (char.ToUpper(newGender) == 'M' || char.ToUpper(newGender) == 'F'))
-                        {
-                            person.Gender = newGender;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Gender cannot be empty and must be a single character. Please enter a valid gender(M/F).");
-                        }
+                        person.Gender = checking.get_gender(1);
                         Console.WriteLine();
                         break;
 
                     case 6:
-                        Console.Write("Enter new country code: ");
-                        if (int.TryParse(Console.ReadLine(), out int newCountryCode))
-                        {
-                            person.CountryCode = newCountryCode;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Country code cannot be empty and must be number. Please enter a valid country code.");
-                        }
+                        person.CountryCode = checking.get_countryCode(1);
                         Console.WriteLine();
                         break;
 
                     case 7:
-                        Console.Write("Enter new area code: ");
-                        if (int.TryParse(Console.ReadLine(), out int newAreaCode))
-                        {
-                            person.CountryCode = newAreaCode;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Area code cannot be empty and must be number. Please enter a valid area code.");
-                        }
+                        person.AreaCode = checking.get_areaCode(1);
                         Console.WriteLine();
                         break;
 
                     case 8:
-                        Console.Write("Enter new phone number: ");
-                        if (int.TryParse(Console.ReadLine(), out int newNumber))
-                        {
-                            person.CountryCode = newNumber;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Number cannot be empty and must be number. Please enter a valid number.");
-                        }
+                        person.Number = checking.get_number(1);
                         Console.WriteLine();
                         break;
 
