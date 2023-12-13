@@ -10,7 +10,7 @@ class Functions
     {
         while (true)
         {
-            string studentNumber = checking.get_studentNumber();
+            string studentNumber = checking.get_studentNumber(0);
 
 
 
@@ -132,15 +132,7 @@ class Functions
                 switch (choice)
                 {
                     case 1:
-                        Console.Write("Enter new student number: ");
-                        string newStudentNumber = Console.ReadLine();
-
-                        if (string.IsNullOrEmpty(newStudentNumber))
-                        {
-                            Console.WriteLine("Student number cannot be empty. Please enter a valid student number.");
-                            continue;
-                        }
-                        person.StudentNumber = newStudentNumber;
+                        string newStudentNumber = checking.get_studentNumber(1);
                         Console.WriteLine();
                         break;
 

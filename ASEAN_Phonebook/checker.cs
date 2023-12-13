@@ -8,12 +8,19 @@ using System.Threading.Tasks;
 
 class checking
 {
-    public static string get_studentNumber()
+    public static string get_studentNumber(int a)
     {
         while (true)
         {
             string input = Console.ReadLine();
-
+            if (a == 0)
+            {
+                Console.Write("\nEnter Student Number: ");
+            }
+            else if (a == 1)
+            {
+                Console.Write("\nEnter New Student Number: ");
+            }
             if (string.IsNullOrEmpty(input))
             {
                 Console.WriteLine("Student number cannot be empty. Please enter a valid student number.");
@@ -36,3 +43,4 @@ class checking
             }
         }
     }
+ }
