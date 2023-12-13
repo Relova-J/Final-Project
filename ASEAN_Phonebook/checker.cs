@@ -233,5 +233,7 @@ class checking
             {
                 Console.WriteLine("Phone numbers must be numbers. Please enter a valid phone numbers.");
                 continue;
-
+            }
+        }
+    }
  }
