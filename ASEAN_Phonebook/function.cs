@@ -178,6 +178,11 @@ class Functions
             filter_person.AddRange(OtherInformation.get_Phonebook().Where(person => person.CountryCode == countryCode));
         }
 
+        filter_person = filter_person
+            .OrderBy(person => person.Surname)
+            .ThenBy(person => person.FirstName)
+            .ToList();
+
         if (filter_person.Count > 0)
         {
             Console.WriteLine($"\nList of People in {string.Join(", ", country_names)}");

@@ -12,7 +12,6 @@ class checking
     {
         while (true)
         {
-            string input = Console.ReadLine();
             if (a == 0)
             {
                 Console.Write("\nEnter Student Number: ");
@@ -21,6 +20,8 @@ class checking
             {
                 Console.Write("\nEnter New Student Number: ");
             }
+            string input = Console.ReadLine();
+
             if (string.IsNullOrEmpty(input))
             {
                 Console.WriteLine("Student number cannot be empty. Please enter a valid student number.");
@@ -50,11 +51,11 @@ class checking
         {
             if (a == 0)
             {
-                Console.Write("\nEnter Surname Number: ");
+                Console.Write("\nEnter Surname: ");
             }
             else if (a == 1)
             {
-                Console.Write("\nEnter New Surname Number: ");
+                Console.Write("\nEnter New Surname: ");
             }
             string input = Console.ReadLine();
 
@@ -234,6 +235,7 @@ class checking
                 Console.WriteLine("Phone numbers must be numbers. Please enter a valid phone numbers.");
                 continue;
             }
+            return input;
         }
     }
 
